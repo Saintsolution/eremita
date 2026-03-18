@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
 
 export default function FortuneWheel() {
   const [fortune, setFortune] = useState<string | null>(null);
@@ -54,7 +53,11 @@ export default function FortuneWheel() {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-gold via-gold/80 to-gold/60 rounded-full shadow-2xl shadow-gold/50" />
           <div className="absolute inset-4 bg-navy rounded-full border-4 border-charcoal flex items-center justify-center">
-            <Sparkles className="w-20 h-20 md:w-24 md:h-24 text-gold" />
+            <img
+              src="/roda_fortuna.png"
+              alt="Roda da Fortuna"
+              className="w-20 h-20 md:w-24 md:h-24 object-contain"
+            />
           </div>
 
           <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
@@ -101,7 +104,11 @@ export default function FortuneWheel() {
             >
               <div className="bg-gradient-to-br from-charcoal/50 to-navy/50 backdrop-blur-lg rounded-lg border-2 border-gold/30 p-8 shadow-2xl">
                 <div className="flex items-start space-x-4">
-                  <Sparkles className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
+                  <img
+                    src="/roda_fortuna.png"
+                    alt="Ícone da Roda da Fortuna"
+                    className="w-6 h-6 object-contain flex-shrink-0 mt-1"
+                  />
                   <div>
                     <h3 className="font-cinzel text-xl text-gold mb-4">
                       Mensagem do Eremita
