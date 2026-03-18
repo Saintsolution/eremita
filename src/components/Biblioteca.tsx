@@ -14,82 +14,82 @@ const books: Book[] = [
     id: '1',
     title: 'O Livro dos Espíritos',
     author: 'Allan Kardec',
-    imageUrl: 'https://images.pexels.com/photos/1426044/pexels-photo-1426044.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://m.media-amazon.com/images/I/71s3ZKCvlnL._SY522_.jpg',
     description:
       'Um grimório ancestral que desvenda os mistérios do além, revelando as verdades que jazem entre o véu dos mundos visível e invisível.',
-    affiliateLink: '#',
+    affiliateLink: 'https://amzn.to/4cUBwUZ',
   },
   {
     id: '2',
     title: 'A República',
     author: 'Platão',
-    imageUrl: 'https://images.pexels.com/photos/2203683/pexels-photo-2203683.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://m.media-amazon.com/images/I/81KkahDyzgL._SY522_.jpg',
     description:
       'As meditações do filósofo sobre a justiça e a sabedoria, escrituras que guiaram reis e sábios através dos séculos.',
-    affiliateLink: '#',
+    affiliateLink: 'https://amzn.to/3P7J3pP',
   },
   {
     id: '3',
     title: 'Meditações',
     author: 'Marco Aurélio',
-    imageUrl: 'https://images.pexels.com/photos/1112048/pexels-photo-1112048.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://m.media-amazon.com/images/I/612B0id4gNL._SY522_.jpg',
     description:
       'Os pensamentos de um imperador-filósofo, pergaminhos de sabedoria estoica para fortalecer a alma contra as tempestades da vida.',
-    affiliateLink: '#',
+    affiliateLink: 'https://amzn.to/3NFFW81',
   },
   {
     id: '4',
     title: 'O Alquimista',
     author: 'Paulo Coelho',
-    imageUrl: 'https://images.pexels.com/photos/2228557/pexels-photo-2228557.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://m.media-amazon.com/images/I/71ndsxE8OjL._SY522_.jpg',
     description:
       'A jornada de um pastor em busca de seu tesouro pessoal, uma parábola mística sobre seguir os sinais do destino.',
-    affiliateLink: '#',
+    affiliateLink: 'https://amzn.to/4dsSEkU',
   },
   {
     id: '5',
     title: 'O Poder do Agora',
     author: 'Eckhart Tolle',
-    imageUrl: 'https://images.pexels.com/photos/3393649/pexels-photo-3393649.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://m.media-amazon.com/images/I/71sh8JtiZbL._AC_UY436_FMwebp_QL65_.jpg',
     description:
       'Ensinamentos sobre a arte de viver no momento presente, dissolvendo as ilusões do tempo e alcançando a iluminação interior.',
-    affiliateLink: '#',
+    affiliateLink: 'https://amzn.to/3NKA5hF',
   },
   {
     id: '6',
     title: 'As Profecias Celestinas',
     author: 'James Redfield',
-    imageUrl: 'https://images.pexels.com/photos/1130980/pexels-photo-1130980.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://m.media-amazon.com/images/I/813SrqD7NJL._SY522_.jpg',
     description:
       'Nove revelações encontradas em manuscritos antigos que desvendam os segredos da energia espiritual e da consciência humana.',
-    affiliateLink: '#',
+    affiliateLink: 'https://amzn.to/4dr44pg',
   },
   {
     id: '7',
     title: 'O Livro Completo da Astrologia',
     author: 'Kris Brandt Riske',
-    imageUrl: 'https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4c5?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://m.media-amazon.com/images/I/61Oz8IPLb6L._SY522_.jpg',
     description:
       'Muitos olham para o céu e veem apenas luzes distantes. Este guia é o teu cajado para decifrar como os planetas moldam o teu temperamento e as tuas escolhas.',
-    affiliateLink: '#',
+    affiliateLink: 'https://amzn.to/4cTYtI2',
   },
   {
     id: '8',
     title: 'A Bíblia dos Cristais',
     author: 'Judy Hall',
-    imageUrl: 'https://images.unsplash.com/photo-1567883116243-485185c4f50d?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://m.media-amazon.com/images/I/51My-rDajSL._SX342_SY445_ML2_.jpg',
     description:
       'A terra guarda o poder de eras. Aprende a usar as joias da criação, luzes sólidas da montanha, para equilibrar o teu espírito e fortalecer a tua jornada.',
-    affiliateLink: '#',
+    affiliateLink: 'https://amzn.to/4sK7Hv4',
   },
   {
     id: '9',
     title: 'Tarot Mitológico',
     author: 'Liz Greene',
-    imageUrl: 'https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://m.media-amazon.com/images/I/516nb4wG2+L._SY522_.jpg',
     description:
       'As imagens falam onde as palavras falham. Através dos arquétipos dos deuses antigos, verás refletido o teu momento atual e os desafios na curva da estrada.',
-    affiliateLink: '#',
+    affiliateLink: 'https://amzn.to/3PfqOyM',
   }
 ];
 
