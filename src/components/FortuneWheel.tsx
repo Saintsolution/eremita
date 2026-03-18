@@ -3,28 +3,33 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function FortuneWheel() {
   const [fortune, setFortune] = useState<string | null>(null);
+  const [pendingFortune, setPendingFortune] = useState<string | null>(null); // Guarda a sorte "na manga"
   const [isSpinning, setIsSpinning] = useState(false);
 
   const spinWheel = async () => {
     if (isSpinning) return;
 
     setIsSpinning(true);
-    setFortune(null);
+    setFortune(null); // Esconde a mensagem anterior
+    setPendingFortune(null);
 
     try {
       const response = await fetch('/sortes.json');
       const fortunes: string[] = await response.json();
       const randomIndex = Math.floor(Math.random() * fortunes.length);
-
-      setTimeout(() => {
-        setFortune(fortunes[randomIndex]);
-        setIsSpinning(false);
-      }, 2000);
+      
+      // Guardamos a sorte, mas NÃO mostramos ainda
+      setPendingFortune(fortunes[randomIndex]);
     } catch (error) {
-      setFortune(
-        'Os astros se ocultam nas brumas... Tentai novamente, Peregrino.'
-      );
+      setPendingFortune('Os astros se ocultam nas brumas... Tentai novamente.');
+    }
+  };
+
+  // Função disparada assim que a roda para de girar
+  const handleAnimationComplete = () => {
+    if (isSpinning) {
       setIsSpinning(false);
+      setFortune(pendingFortune); // Só agora a mensagem vai para o ecrã
     }
   };
 
@@ -41,42 +46,33 @@ export default function FortuneWheel() {
 
       <div className="flex flex-col items-center space-y-8">
         <motion.div
-          className="relative w-64 h-64 md:w-80 md:h-80"
-          animate={{
-            rotate: isSpinning ? 360 : 0,
-          }}
+          className="relative w-72 h-72 md:w-96 md:h-96"
+          animate={{ rotate: isSpinning ? 1080 : 0 }} // 3 voltas completas (1080°)
           transition={{
-            duration: 2,
-            ease: 'easeInOut',
-            repeat: isSpinning ? Infinity : 0,
+            duration: 2.5,
+            ease: "circOut", // Para de forma suave e realista
           }}
+          onAnimationComplete={handleAnimationComplete} // O SEGREDO ESTÁ AQUI
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-gold via-gold/80 to-gold/60 rounded-full shadow-2xl shadow-gold/50" />
-          <div className="absolute inset-4 bg-navy rounded-full border-4 border-charcoal flex items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-br from-gold via-gold/80 to-gold/60 rounded-full shadow-2xl shadow-gold/40 border-4 border-gold/50" />
+          
+          <div className="absolute inset-2 bg-navy rounded-full border-2 border-charcoal overflow-hidden flex items-center justify-center">
             <img
               src="/roda_fortuna.png"
               alt="Roda da Fortuna"
-              className="w-20 h-20 md:w-24 md:h-24 object-contain"
+              className="w-[92%] h-[92%] object-contain"
             />
           </div>
 
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100">
             {[...Array(12)].map((_, i) => {
               const angle = (i * 30 * Math.PI) / 180;
-              const x1 = 50 + 45 * Math.cos(angle);
-              const y1 = 50 + 45 * Math.sin(angle);
+              const x1 = 50 + 44 * Math.cos(angle);
+              const y1 = 50 + 44 * Math.sin(angle);
               const x2 = 50 + 50 * Math.cos(angle);
               const y2 = 50 + 50 * Math.sin(angle);
               return (
-                <line
-                  key={i}
-                  x1={x1}
-                  y1={y1}
-                  x2={x2}
-                  y2={y2}
-                  stroke="#d4af37"
-                  strokeWidth="2"
-                />
+                <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#d4af37" strokeWidth="1.5" />
               );
             })}
           </svg>
@@ -85,38 +81,28 @@ export default function FortuneWheel() {
         <button
           onClick={spinWheel}
           disabled={isSpinning}
-          className="group relative px-8 py-4 bg-gradient-to-r from-gold to-gold/80 hover:from-gold/90 hover:to-gold/70 text-navy font-cinzel text-xl font-bold rounded-lg shadow-lg hover:shadow-gold/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="group relative px-10 py-5 bg-gradient-to-r from-gold to-gold/80 hover:from-gold/90 hover:to-gold/70 text-navy font-cinzel text-xl font-bold rounded-full shadow-xl hover:shadow-gold/50 transition-all duration-300 disabled:opacity-50"
         >
           <span className="relative z-10">
-            {isSpinning ? 'Consultando os Astros...' : 'Girar a Roda da Sorte'}
+            {isSpinning ? 'O Destino se move...' : 'Girar a Roda da Sorte'}
           </span>
-          <div className="absolute inset-0 bg-white/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
         </button>
 
         <AnimatePresence mode="wait">
           {fortune && (
             <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.9 }}
-              transition={{ duration: 0.5 }}
-              className="w-full max-w-2xl"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="w-full max-w-2xl mt-8"
             >
-              <div className="bg-gradient-to-br from-charcoal/50 to-navy/50 backdrop-blur-lg rounded-lg border-2 border-gold/30 p-8 shadow-2xl">
-                <div className="flex items-start space-x-4">
-                  <img
-                    src="/roda_fortuna.png"
-                    alt="Ícone da Roda da Fortuna"
-                    className="w-6 h-6 object-contain flex-shrink-0 mt-1"
-                  />
-                  <div>
-                    <h3 className="font-cinzel text-xl text-gold mb-4">
-                      Mensagem do Eremita
-                    </h3>
-                    <p className="text-gray-300 font-inter leading-relaxed text-lg">
-                      {fortune}
-                    </p>
-                  </div>
+              <div className="bg-charcoal/80 backdrop-blur-md rounded-2xl border-2 border-gold/40 p-8 shadow-[0_0_30px_rgba(212,175,55,0.2)]">
+                <div className="flex flex-col items-center text-center">
+                  <img src="/roda_fortuna.png" className="w-12 h-12 mb-4" alt="Ícone" />
+                  <h3 className="font-cinzel text-2xl text-gold mb-4">Revelação do Eremita</h3>
+                  <p className="text-gray-200 font-inter italic text-xl leading-relaxed">
+                    "{fortune}"
+                  </p>
                 </div>
               </div>
             </motion.div>
