@@ -65,7 +65,16 @@ function App() {
         </div>
       </section>
 
-      <section ref={chatRef} className="py-16 border-t border-gold/10 scroll-mt-16">
+     {/* SEÇÃO DO CHAT COM FUNDO DE CAVERNA MÍSTICA POSTERIZADA */}
+      <section 
+        ref={chatRef} 
+        className="relative py-16 border-t border-gold/10 scroll-mt-16 bg-cover bg-center bg-no-repeat"
+        style={{ 
+          // Camada de gradiente preto translúcido (80% de opacidade) sobre a imagem
+          // para garantir a leitura do conteúdo do chat.
+          backgroundImage: "linear-gradient(rgba(10, 15, 20, 0.8), rgba(10, 15, 20, 0.9)), url('/cave.png')" 
+        }}
+      >
         <Chat
           onFocusSection={() => {
             chatRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
