@@ -1,0 +1,18 @@
+{
+  "info": "Tabela mística de entrada do Sol nos signos (Média histórica para auxílio do Eremita)",
+  "entradas_solares": {
+    "01": "Capricornio (até dia 19), Aquario (dia 20 em diante)",
+    "02": "Aquario (até dia 18), Peixes (dia 19 em diante)",
+    "03": "Peixes (até dia 20), Aries (dia 21 em diante - Equinócio)",
+    "04": "Aries (até dia 19), Touro (dia 20 em diante)",
+    "05": "Touro (até dia 20), Gemeos (dia 21 em diante)",
+    "06": "Gemeos (até dia 20), Cancer (dia 21 em diante - Solstício)",
+    "07": "Cancer (até dia 22), Leao (dia 23 em diante)",
+    "08": "Leao (até dia 22), Virgem (dia 23 em diante)",
+    "09": "Virgem (até dia 22), Libra (dia 23 em diante - Equinócio)",
+    "10": "Libra (até dia 22), Escorpiao (dia 23 em diante)",
+    "11": "Escorpiao (até dia 21), Sagitario (dia 22 em diante)",
+    "12": "Sagitario (até dia 21), Capricornio (dia 22 em diante - Solstício)"
+  },
+  "fases_da_lua_padrao": "Consultar intuição baseada no dia do mês: Início (Nova), Dia 7 (Crescente), Dia 14 (Cheia), Dia 21 (Minguante)"
+}
